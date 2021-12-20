@@ -1,0 +1,55 @@
+# Topics
+
+### Creating Databases
+- PSQL: CREATE DATABASE nameOfYourDB;
+- Terminal: createdb nameOfYourDB; 
+
+### Dropping Databases
+- PSQL: DROP DATABASE nameOfYourDB; 
+- Terminal: dropdb nameOfYourDB; 
+
+### Connecting to a database
+- PSQL: \c nameOfYourDB;
+- Terminal: psql nameOfYourDB; 
+
+### Creating Tables in your databases (the simple version)
+- PSQL: CREATE TABLE nameOfYourTable( descriptionalInfoHere );
+
+### Dropping Tables in your databases
+- PSQL: DROP TABLE nameOfYourTable; 
+
+### Populating Tables with Descriptional Info (i.e. about columns) 
+- PSQL: CREATE TABLE nameOfYourTable(
+    nameOfYourColumn DATATYPE CONSTRAINTS,
+    nameOfSecondColumn DATATYPE CONSTRAINTS
+);
+
+#### Common Datatypes 
+- VARCHAR(n), where n is the limit of characters users are able to enter 
+- TEXT -> Commonly used for entries like blog posts, facebook status updates 
+- INTEGER 
+- BOOLEAN 
+
+#### Common Constraints 
+- UNIQUE, which will force every entry into this column to be a unique value relative to the other entries in the column 
+- NOT NULL, which will force every entry into this column to have SOMETHING 
+- DEFAULT yourDefaultValue, which will force every entry into this column IF LEFT BLANK to have that default value 
+
+#### Serial Type
+- SERIAL, will increment as data is inserted 
+
+#### Primary Key
+- Primary key implies unique (not null) 
+
+### Inserting Data Into Your Tables + Returning Data 
+- PSQL: INSERT INTO yourTableName(column1, column2, column3)
+VALUES 
+(valueForColumn1, valueForColumn2, valueForColumn3),
+(2ndValueForCol1, 2ndValueForCol2, 2ndValueForCol3)
+RETURNING (column1, column2, column3); 
+
+### Selecting Data from our tables
+- To select all entries: SELECT * FROM yourTableName;
+- To select entries based off of a logical condition: 
+SELECT * FROM yourTableName
+WHERE logicalCondition;
